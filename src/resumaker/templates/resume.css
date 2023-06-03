@@ -1,0 +1,79 @@
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.section > h2 {
+  color: var(--main-accent-color-dark);
+  flex: 1;
+  margin: .25em 0 .75em 0;
+  text-transform: uppercase;
+}
+
+.section > .tile {
+  flex: 1;
+  margin-bottom: 0.75em;
+}
+
+.section > .tile > header {
+  display: flex;
+  flex: 1;
+}
+
+.section > .tile > header > span {
+  flex: 1;
+  white-space: nowrap;
+}
+
+.section > .tile > header > span:nth-child(2) {
+  text-align: center;
+}
+
+.section > .tile > header > span:last-child {
+  text-align: right;
+}
+
+.section > .tile > p {
+  margin: .5em 0;
+}
+
+.section > .tile span.skill-1 {
+  text-decoration: underline double;
+}
+
+.section > .tile span.skill-2 {
+  text-decoration: underline solid;
+}
+
+.note {
+  color: var(--main-text-color-light);
+  margin-top: 1em;
+}
+
+.degree {
+  font-weight: bold;
+}
+
+.email > svg {
+  fill: var(--main-accent-color-dark);
+  position: relative;
+  right: -.3em;
+  top: .25em;
+}
+
+.homepage > svg {
+  fill: var(--main-accent-color-dark);
+  position: relative;
+  right: -.3em;
+  top: .2em;
+}
+
+.name {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.title {
+  font-weight: bold;
+  text-transform: uppercase;
+}

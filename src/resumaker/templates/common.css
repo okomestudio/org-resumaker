@@ -1,0 +1,91 @@
+:root {
+  --main-text-color: hsla(0, 0%, 0%, 1);
+  --main-text-color-light: hsla(0, 0%, 55%, 1);
+  --main-accent-color: hsla(182, 41%, 61%, 1);
+  --main-accent-color-dark: hsla(182, 33%, 49%, 1); /* #54a2a5 */
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+body {
+  color: var(--main-text-color);
+  font-family: Hack, monospace;
+  width: calc(100vw);
+}
+
+@media (min-width: 35em) {
+  body {
+    /* This is a trick to avoid the page to shift based on the
+       visibility of scroll bar */
+    width: calc(100vw - 34px);
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-size: 1em;
+  font-family: Hack, monospace;
+}
+
+ul {
+  list-style: none;
+  margin: .5em 0;
+  padding-left: 0;
+}
+
+li {
+  margin: .25em 0;
+  padding-left: 1.8em;
+  text-indent: -1.16em;
+}
+
+li:before {
+  content: "-";
+  padding-right: .58em;
+  /* padding-right: 0.35em; */
+}
+
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+@page {
+  size: letter;
+}
+
+.tile {
+  flex: 1;
+}
+
+.container {
+  font-size: .83em;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 1080px;
+}
+
+::-webkit-scrollbar {
+  background: #ededed;
+  height: 0.75em;
+  width: 0.75em;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main-accent-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--main-accent-color-dark);
+}

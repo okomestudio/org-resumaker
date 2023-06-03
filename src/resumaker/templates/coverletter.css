@@ -1,0 +1,44 @@
+header {
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  width: 60%;
+}
+
+header .tile {
+  /* width: 50%; */
+}
+
+
+.my-address {
+  flex: 5;
+  margin-left: 2em;
+  white-space: nowrap;
+
+}
+
+.logo {
+  flex: 1;
+}
+
+.logo img {
+  height: 110px;
+  width: auto;
+}
+
+.date,
+.recipient-address,
+.subject,
+.dear-name {
+  margin: 1.5em 0;
+}
+
+.container p {
+  line-height: 1.5;
+  margin: 1.5em 0;
+}
+
+.signature img {
+  display: block;
+  width: 160px;
+}
