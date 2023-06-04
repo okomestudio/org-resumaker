@@ -1,0 +1,50 @@
+* Heading to nest resume tree
+** John Doe :resume:
+:PROPERTIES:
+:email:    john@doe.net
+:website:  JohnDoe.org
+:END:
+*** Titanic, Inc. :work:
+**** Sr. account executive
+:PROPERTIES:
+:date_from: 2023-06
+:END:
+
+Job description here.
+
+**** Account executive
+:PROPERTIES:
+:date_from: 2022-04
+:date_to: 2023-06
+:END:
+
+- Job
+- Description
+- Here
+
+*** Startlebucks :work:
+**** Barista
+:PROPERTIES:
+:date_from: 2020-09
+:date_to:  2022-04
+:END:
+
+This is not Charbucks.
+
+*** Org College :education:
+**** B.A.
+:PROPERTIES:
+:date_from: 2007-09
+:date_to:  2011-05
+:area:     Philosophy
+:END:
+
+** Random heading
+* Heading
+* Another Heading
+* Jane Doe :resume:
+
+For now, resume trees after the first one is ignored.
+
+** foo
+** baz

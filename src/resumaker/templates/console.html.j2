@@ -1,0 +1,93 @@
+{% extends "base.html.j2" %}
+
+{% block template %}console{% endblock %}
+
+{% block content %}
+<div class="section">
+    <div class="tile">
+        <header>
+            <span class="name">{{ name }}</span>
+            <span class="homepage">
+                <svg xmlns="http://www.w3.org/2000/svg" width="{{ style.icon_size | d(" 16") }}"
+                    height="{{ style.icon_size | d(" 16") }}" viewBox="0 0 50 50">
+                    <path
+                        d="M 25 1.7402344 L 1.3925781 19.84375 C 0.95457813 20.17975 0.87007813 20.806141 1.2050781 21.244141 C 1.4020781 21.501141 1.7009531 21.636719 2.0019531 21.636719 C 2.2139531 21.636719 2.4264219 21.569688 2.6074219 21.429688 L 4 20.363281 L 4 48 L 17 48 L 17 25 L 33 25 L 33 48 L 46 48 L 46 20.363281 L 47.392578 21.429688 C 47.831578 21.766687 48.458922 21.682141 48.794922 21.244141 C 49.130922 20.806141 49.046422 20.17975 48.607422 19.84375 L 42 14.775391 L 42 5 L 36 5 L 36 10.175781 L 25 1.7402344 z M 19 27 L 19 48 L 31 48 L 31 27 L 19 27 z M 28 36 C 28.552 36 29 36.448 29 37 C 29 37.552 28.552 38 28 38 C 27.448 38 27 37.552 27 37 C 27 36.448 27.448 36 28 36 z" />
+                </svg>
+                {{ website }}
+            </span>
+            <span class="email">
+                <svg xmlns="http://www.w3.org/2000/svg" width="{{ style.icon_size | d(" 16") }}" height="{{ style.icon_size | d("16") }}" viewBox="0 0 50 50">
+                    <path
+                        d="M 0 7 L 0 9.875 L 25 29.71875 L 50 10.125 L 50 7 L 0 7 z M 0 12.40625 L 0 43 L 50 43 L 50 12.65625 L 25.625 31.78125 C 25.444 31.92325 25.218 32 25 32 C 24.78 32 24.557 31.92625 24.375 31.78125 L 0 12.40625 z">
+                    </path>
+                </svg>
+                {{ email }}
+            </span>
+        </header>
+    </div>
+</div>
+
+<div class="section work_history">
+    <h2># Work History & Experience</h2>
+
+    {% for work_item in work_items %}
+      {% for position in work_item.positions %}
+        <div class="tile">
+          <header>
+            <span class="title">{{ position.title }}</span>
+            <span class="company">{{ work_item.organization }}</span>
+            <span class="dates">{{ position.date_from.strftime('%b %Y') }} - {{ position.date_to.strftime('%b %Y') if position.date_to is not none }}</span>
+          </header>
+
+          {% for line in position.body %}
+            {% if line is string %}
+              <p>{{ line }}</p>
+            {% else %}
+              <ul>
+                {% for list_item in line %}
+                  <li>{{ list_item }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endfor %}
+    {% endfor %}
+</div>
+
+<div class="section">
+    <h2># Education</h2>
+
+    {% for education_item in education_items %}
+      {% for degree in education_item.degrees %}
+        <div class="tile">
+          <header>
+            <span class="degree">{{ degree.degree }} in {{ degree.area }}</span>
+            <span class="school">{{ education_item.organization }}</span>
+            <span class="dates">{{ degree.date_from.strftime('%b %Y') + " -" if degree.date_to is none else degree.date_to.strftime('%b %Y') }}</span>
+          </header>
+
+          {% for line in degree.body %}
+            {% if line is string %}
+              <p>{{ line }}</p>
+            {% else %}
+              <ul>
+                {% for list_item in line %}
+                  <li>{{ list_item }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endfor %}
+    {% endfor %}
+</div>
+
+<div class="section note">
+  <div class="tile">
+    <header>
+      <span>Date: {{ now.strftime('%Y-%m-%d') }}</span>
+    </header>
+  </div>
+</div>
+{% endblock %}
