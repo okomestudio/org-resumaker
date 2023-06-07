@@ -141,7 +141,7 @@ def _render_resume(
     return rendered
 
 
-def _preview(rendered: str) -> None:
+def _preview_html(rendered: str) -> None:
     with NamedTemporaryFile(mode="w+", encoding="utf-8", suffix=".html") as f:
         f.write(rendered)
         f.flush()
@@ -150,6 +150,12 @@ def _preview(rendered: str) -> None:
         time.sleep(1)
 
 
-def resumake(meta_resume: str, scale: float = 1.0, template: str = "console"):
-    rendered = _render_resume(meta_resume, scale, template)
-    _preview(rendered)
+def resumake(
+    org_resume: str, scale: float = 1.0, template: str = "console", ftype: str = "html"
+):
+    rendered = _render_resume(org_resume, scale, template)
+
+    if ftype == "html":
+        _preview_html(rendered)
+    else:
+        raise NotImplementedError
